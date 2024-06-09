@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
-import BotSpecsPage from './pages/BotSpecsPage'
-import NotFoundPage from './pages/NotFoundPage'
-import BotPage from './pages/BotsPage'
+import BotSpecsPage from "./pages/BotSpecsPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import BotPage from "./pages/BotsPage";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
 // TODO: import Routes and Route
 
 const App = () => {
-
   // TODO: Render Routes with a Route for:
   // - BotPage when the URL matches "/"
   // - BotSpecsPage when the URL matches "/robots/:id"
@@ -14,9 +15,13 @@ const App = () => {
 
   return (
     <div className="App">
-      <BotPage />
+      <Routes>
+        <Route path="/" element={<BotPage />} />
+        <Route path="/robots/:id" element={<BotSpecsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
